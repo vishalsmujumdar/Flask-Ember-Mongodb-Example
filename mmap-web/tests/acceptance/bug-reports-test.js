@@ -12,6 +12,10 @@ test('visiting /bug-reports', function(assert) {
 });
 
 test('should list available bug reports.', function (assert) {
+  visit('/bug-reports');
+  andThen(function(){
+    assert.equal(find('.bug').length,3,'should see 3 bugs')
+  })
 });
 
 test('should prepend new report to the list ', function (assert) {
