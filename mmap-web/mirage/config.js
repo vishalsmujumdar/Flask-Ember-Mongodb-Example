@@ -32,6 +32,11 @@ export default function() {
       }]
     };
   });
+  // this.post('/bug-reports', function(store, request) {
+  //   var attrs = JSON.parse(request.requestBody);
+  //   var bugReport = store['bug-report'].insert(attrs);
+  //   return { 'bug-report': bugReport };
+  // });
 
   // These comments are here to help you get started. Feel free to delete them.
 

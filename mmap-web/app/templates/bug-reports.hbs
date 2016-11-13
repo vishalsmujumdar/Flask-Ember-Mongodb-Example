@@ -1,6 +1,9 @@
 <div id="bug-reports">
-  <div class='add report'>
-
-  </div>
-  {{bug-report-listing bug-reports=model}}
+  {{bug-report-new}}
+  <!-- {{bug-report-listing bug-reports=model}} -->
+  <ul>
+  {{#each model as |bug|}}
+    {{bug-report-unit bug=bug}}
+  {{/each}}
+  </ul>
 </div>
