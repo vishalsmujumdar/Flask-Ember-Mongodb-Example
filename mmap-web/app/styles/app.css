@@ -1,0 +1,3 @@
+#bug-reports li.bug-report.done {
+  text-decoration: line-through;
+}

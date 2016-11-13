@@ -11,21 +11,12 @@ test('visiting /bug-reports', function(assert) {
   });
 });
 
-test('should list available bug reports.', function (assert) {
-  visit('/bug-reports');
-  andThen(function(){
-    assert.equal(find('.bug').length,3,'should see 3 bugs')
-  })
-});
-
 test('should prepend new report to the list ', function (assert) {
 });
 
-test('should show edited report after modifying ', function (assert) {
-});
-
-test('should add class indicating deleted text when click report', function (assert) {
-});
-
-test('should remove report if delete button is clicked', function (assert) {
+test('should list available bug reports.', function (assert) {
+  visit('/bug-reports');
+  andThen(function(){
+    assert.equal(find('#bug-reports li.bug-report').length,3,'should see 3 bugs');
+  });
 });

@@ -1,8 +1,5 @@
 <ul>
 {{#each bug-reports as |bug|}}
-  <li class="bug">
-    <!-- action -> toggle done <del></del> -->
-    {{bug.title}}
-  </li>
+  {{bug-report-unit bug=bug}}
 {{/each}}
 </ul>
