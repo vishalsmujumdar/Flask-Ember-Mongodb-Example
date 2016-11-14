@@ -2,6 +2,6 @@ import Ember from 'ember';
 
 export default Ember.Route.extend({
   model() {
-    return this.get('store').findAll('bug-report');
+    return this.get('store').findAll('bug-report');//bug-report -> bugReports
   }
 });

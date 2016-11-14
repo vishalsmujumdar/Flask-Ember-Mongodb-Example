@@ -6,8 +6,6 @@ moduleForComponent('bug-report-new', 'Integration | Component | bug report new',
 });
 
 test('should add submitted data to store', function(assert) {
-  // Set any properties with this.set('myProperty', 'value');
-  // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{bug-report-new}}`);
 

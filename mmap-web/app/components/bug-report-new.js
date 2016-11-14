@@ -4,6 +4,8 @@ export default Ember.Component.extend({
   actions : {
     newBugReport(){
       let title = this.get('value');
+
+      //store.createRecord('post')
     }
   }
 });
