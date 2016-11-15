@@ -1,11 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  actions : {
-    newBugReport(){
+  keyDown: function(e){
+    if(e.keyCode === 13){//enter
       let title = this.get('value');
-
-      //store.createRecord('post')
+      let postAction = this.get('postAction');
+      postAction(title);//controller.bug-reports.js
+      this.set('value','');
     }
   }
+
 });

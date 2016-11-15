@@ -2,7 +2,13 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
   title : DS.attr('string'),
-  done : DS.attr('boolean'),
-  date : DS.attr('date'),
-  user : DS.attr()// //DS.belongsTo('user')
+  done : DS.attr('boolean',{
+    defaultValue : false
+  }),
+  date : DS.attr('date',{
+    defaultValue : new Date()
+  }),
+  user : DS.attr('string',{
+    defaultValue : 'guest'
+  })// //DS.belongsTo('user')
 });
