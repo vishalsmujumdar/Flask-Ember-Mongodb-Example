@@ -2,9 +2,9 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    postBugReport(title){
+    postIssue(title){
       if(title !== ''){
-        return this.get('store').createRecord('bug-report',{title:title});
+        return this.get('store').createRecord('issue',{title:title});
       }
     }
   }

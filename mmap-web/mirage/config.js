@@ -1,9 +1,9 @@
 export default function() {
   this.namespace = '/api';
 //http://www.ember-cli-mirage.com/docs/v0.1.x/defining-routes/
-  this.get('/bugReports',function(Schema){
+  this.get('/issues',function(Schema){
     return{
-      'bug-report': Schema.db.bugReports
+      'issue': Schema.db.issues
     };
   });
 

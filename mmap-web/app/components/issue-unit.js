@@ -4,7 +4,7 @@ export default Ember.Component.extend({
   isDone : false,
   init(){
     this._super(...arguments);
-    this.isDone = this.get('bug').get('done');
+    this.isDone = this.get('issue').get('done');
   },
   actions : {
     toggleDel(){
