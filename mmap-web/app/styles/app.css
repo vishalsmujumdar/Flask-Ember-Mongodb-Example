@@ -1,6 +1,6 @@
-#bug-reports li.bug-report {
+#issues li.issue {
   cursor: pointer;
 }
-#bug-reports li.bug-report.done {
+#issues li.issue.done {
   text-decoration: line-through;
 }
