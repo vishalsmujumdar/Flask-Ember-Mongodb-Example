@@ -37,10 +37,23 @@ test('should prepend new issue to the list ', function (assert) {
     keyEvent('input', 'keydown', 13).then(function() {
       assert.equal(find('li.issue').length, count+1,'should append one more issue');
     });
-  })
+  });
 
 });
 
 test('should list descending', function (assert) {
+  server.create('issue',{title:'one',date:new Date(1479398561000)});
+  server.create('issue',{title:'two',date:new Date(1479398562000)});
+  server.create('issue',{title:'three',date:new Date(1479398563000)});
+  server.create('issue',{title:'fourth',date:new Date(1479398564000)});
+  server.create('issue',{title:'fifth',date:new Date(1479398565000)});
 
+  visit('/issues');
+
+  andThen(function(){
+
+    assert.equal(find('#issues li.issue').first().text().trim(), 'fifth', 'last issue should on top');
+    assert.equal(find('#issues li.issue').last().text().trim(), 'one', 'first issue should at bottom');
+
+  });
 });

@@ -1,7 +1,7 @@
 <div id="issues">
   {{issue-new postAction=(action 'postIssue')}}
   <ul>
-  {{#each model as |issue|}}
+  {{#each descIssues as |issue|}}
     {{issue-unit issue=issue}}
   {{/each}}
   </ul>
