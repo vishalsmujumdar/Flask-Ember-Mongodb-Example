@@ -57,3 +57,34 @@ test('should list descending', function (assert) {
 
   });
 });
+
+test('should show edited issue after modifying ', function (assert) {
+  server.create('issue',{title:'before'});
+
+  visit('/issues');
+
+  andThen(function(){
+    assert.equal(find('li.issue').length,1,'initially li issue rendered');
+    assert.equal(find('li.issue input.edit').length,0,'initially input for edit is closed');
+    triggerEvent('li.issue', 'dblclick');
+  });
+
+  andThen(()=>{
+    assert.equal(find('li.issue input.edit').length,1,'should show input for edit');
+    assert.equal(find('li.issue input.edit').val(),'before','first value of issue is before');
+    fillIn('li.issue input.edit','after');
+  });
+
+  andThen(()=>{
+    assert.equal(find('li.issue input.edit').val(),'after','should edit input value');
+    triggerEvent('li.issue input.edit', 'keypress', {keyCode:13});
+  });
+  andThen(()=>{
+    assert.equal(find('li.issue input.edit').length,0,'should hide input for edit');
+    assert.equal(find('li.issue').text().trim(),'after','issued should be modified');
+  });
+
+});
+
+test('should remove issue if delete button is clicked', function (assert) {
+});

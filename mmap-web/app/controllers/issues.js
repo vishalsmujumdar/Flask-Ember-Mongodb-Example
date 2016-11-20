@@ -8,6 +8,15 @@ export default Ember.Controller.extend({
       if(title !== ''){
         return this.get('store').createRecord('issue',{title:title});
       }
+    },
+    putIssue(param){
+      let title = param.get('title');
+      if(title !== ''){
+        return this.get('store').find('issue',param.id).then((issue)=> {
+          issue.set('title', title);
+          issue.save();
+        });
+      }
     }
   }
 });

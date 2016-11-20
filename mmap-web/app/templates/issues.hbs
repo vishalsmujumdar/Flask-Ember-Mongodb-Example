@@ -2,7 +2,7 @@
   {{issue-new postAction=(action 'postIssue')}}
   <ul>
   {{#each descIssues as |issue|}}
-    {{issue-unit issue=issue}}
+    {{issue-unit issue=issue putAction=(action 'putIssue')}}
   {{/each}}
   </ul>
 </div>

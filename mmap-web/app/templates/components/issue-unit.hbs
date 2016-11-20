@@ -1,3 +1,9 @@
-<li {{action 'toggleDel'}} class="issue {{if isDone "done"}}">
+<li class="issue {{if isDone "done"}}" ondblclick={{action 'toggleEdit'}} >
+  {{input type="checkbox" name="done" checked=isDone onclick=(action 'toggleDone')}}
+  {{#if isEdit}}
+    {{input class="edit" name="title" value=issue.title
+            focus-out=(action 'toggleEdit')}}
+  {{else}}
     {{issue.title}}
+  {{/if}}
 </li>

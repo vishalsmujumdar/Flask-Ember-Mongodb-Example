@@ -34,8 +34,8 @@ test('should show initially rendered done if it is done ', function (assert) {
   assert.equal(this.$('li.issue.done').length,1,'initially rendered done');
 });
 
-test('should show edited issue after modifying ', function (assert) {
+test('should show input field when user dbclick issue', function (assert) {
 });
 
-test('should remove issue if delete button is clicked', function (assert) {
+test('should show delete button when admin user hover issue', function (assert) {
 });
