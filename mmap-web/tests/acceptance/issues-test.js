@@ -1,6 +1,7 @@
 import { test } from 'qunit';
 import moduleForAcceptance from 'mmap-web/tests/helpers/module-for-acceptance';
 
+
 moduleForAcceptance('Acceptance | issues');
 
 test('visiting /issues', function(assert) {
@@ -77,11 +78,13 @@ test('should show edited issue after modifying ', function (assert) {
 
   andThen(()=>{
     assert.equal(find('li.issue input.edit').val(),'after','should edit input value');
-    triggerEvent('li.issue input.edit', 'keypress', {keyCode:13});
+    find('li.issue input.edit').trigger($.Event('keydown',{keyCode :13}));
   });
+
   andThen(()=>{
-    assert.equal(find('li.issue input.edit').length,0,'should hide input for edit');
-    assert.equal(find('li.issue').text().trim(),'after','issued should be modified');
+    assert.equal(server.db.issues[0].title, 'after','issued should be modified');
+    // assert.equal(find('li.issue input.edit').length,0,'should hide input for edit');
+    // assert.equal(find('li.issue').text().trim(),'after','issued should be modified');
   });
 
 });
