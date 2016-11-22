@@ -90,4 +90,13 @@ test('should show edited issue after modifying ', function (assert) {
 });
 
 test('should remove issue if delete button is clicked', function (assert) {
+  server.create('issue',{title:'trash'});
+
+  visit('/issues');
+
+  assert.equal(server.db.issues.length, 1,'issue was made for test');
+  click('li.issue .delete');
+  andThen(()=>{
+    assert.equal(server.db.issues.length, 0,'issue was deleted');
+  });
 });

@@ -46,5 +46,14 @@ test('toggleEdit action should work when user dbclick issue and focus-out input'
   assert.equal(this.$('li.issue:eq(0) input.edit').length,0,'first input should be hidden');
 });
 
-test('should show delete button when admin user hover issue', function (assert) {
+test('should show delete button when user is admin', function (assert) {
+  let stubUser = Ember.Object.create({isAdmin : true});
+  this.set('user', stubUser);
+  this.render(hbs`
+  {{#if user.isAdmin}}
+    <a href="#" class="delete" >X</a>
+  {{/if}}
+  `);
+
+  assert.equal(this.$('.delete').length,1,'should show button for delete');
 });

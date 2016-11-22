@@ -6,4 +6,7 @@
   {{else}}
     {{issue.title}}
   {{/if}}
+  {{#if user.isAdmin}}
+    <a href="#" class="delete" >X</a>
+  {{/if}}
 </li>
