@@ -4,9 +4,9 @@
     {{input class="edit" name="title" value=issue.title
             focus-out=(action 'toggleEdit')}}
   {{else}}
-    {{issue.title}}
+    <span>{{issue.title}}</span>
   {{/if}}
-  {{#if user.isAdmin}}
-    <a href="#" class="delete" >X</a>
-  {{/if}}
+  <a href="#" class="delete" deleteIssue=deleteIssue onclick={{action 'deleteIssue'}}>X</a>
+  <!-- {{#if user.isAdmin}} -->
+  <!-- {{/if}} -->
 </li>

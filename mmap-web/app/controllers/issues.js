@@ -17,6 +17,14 @@ export default Ember.Controller.extend({
           issue.save();
         });
       }
+    },
+    deleteIssue(param){
+      if(param !== ''){
+        return this.get('store').find('issue',param).then((issue)=>{
+          issue.deleteRecord();
+          issue.save();
+        });
+      }
     }
   }
 });

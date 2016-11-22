@@ -52,10 +52,8 @@ test('should list descending', function (assert) {
   visit('/issues');
 
   andThen(function(){
-
-    assert.equal(find('#issues li.issue').first().text().trim(), 'fifth', 'last issue should on top');
-    assert.equal(find('#issues li.issue').last().text().trim(), 'one', 'first issue should at bottom');
-
+    assert.equal(find('#issues li.issue').first().find('span').text().trim(), 'fifth', 'last issue should on top');
+    assert.equal(find('#issues li.issue').last().find('span').text().trim(), 'one', 'first issue should at bottom');
   });
 });
 

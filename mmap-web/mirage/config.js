@@ -15,6 +15,12 @@ export default function() {
       'issue': schema.db.issues.update(request.params.id, JSON.parse(request.requestBody).issue)
     };
   });
+  this.delete('/issues/:id',function(schema,request){
+    return{
+      'issue': schema.db.issues.remove(request.params.id)
+    };
+  });
+
 }
 
 //reference

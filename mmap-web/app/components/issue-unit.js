@@ -30,6 +30,12 @@ export default Ember.Component.extend({
           this.$('input.edit').focus();
         });
       }
+    },
+    deleteIssue(){
+      let deleteIssue = this.get('deleteIssue');
+      let id = this.get('issue').get('id');
+
+      deleteIssue(id);
     }
   }
 });
