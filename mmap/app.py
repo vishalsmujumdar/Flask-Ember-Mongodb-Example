@@ -1,15 +1,20 @@
-from flask import Flask, send_from_directory
+from flask import Flask
+import os
 
 #init
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, static_url_path='');
+
+#config
+ENV = os.environ.get('ENV','DEV');
+app.config.from_object('config.'+ENV);
+app.debug = app.config.get('DEBUG',False);
+
+#database
+db = app.config.get('DB');
 
 @app.route('/')
 def init():
-    return send_from_directory(app.static_folder,'index.html')
-
-@app.route('/<path:filename>')
-def send_file(filename):
-    return send_from_directory(app.static_folder, filename)
+    return app.send_static_file('index.html');
 
 if __name__ == '__main__' :
-    app.run(debug=True)
+    app.run();
