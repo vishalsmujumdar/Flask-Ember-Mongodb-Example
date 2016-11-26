@@ -7,8 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('bug-reports');
   this.route('issues');
+  this.route('test');
 });
 
 export default Router;

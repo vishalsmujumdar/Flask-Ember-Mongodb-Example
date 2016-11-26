@@ -1,7 +1,7 @@
 from flask import Flask, Blueprint
 from flask.views import MethodView
 from app import db
-from app.jsonify import jsonify
+from api.jsonify import jsonify
 
 issues = Blueprint('issues',__name__);
 

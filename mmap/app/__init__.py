@@ -2,12 +2,8 @@ from flask import Flask
 import os
 
 #init
-APP_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'))
-app = Flask(__name__, root_path=APP_ROOT, static_url_path='');
-"""
-app = Flask(__name__, root_path=APP_ROOT,
-            static_folder=os.path.join(APP_ROOT,'/static'), static_url_path='/static');
-"""
+APP_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'));
+app = Flask(__name__,root_path=APP_ROOT,static_url_path='');
 
 #config
 ENV = os.environ.get('ENV','DEV');
