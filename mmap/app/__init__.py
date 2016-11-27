@@ -1,15 +1,11 @@
 from flask import Flask
 import os
 
-APP_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__),'..'));
-STATIC_ROOT = os.path.join(APP_ROOT,'static');
-
 #init
-app = Flask(__name__,root_path=APP_ROOT,static_folder=STATIC_ROOT, static_url_path='');
+app = Flask(__name__);
 
 #config
-ENV = os.environ.get('ENV','DEV');
-app.config.from_object('app.config.'+ENV);
+app.config.from_object('app.config.'+os.environ.get('ENV','DEV'));
 app.debug = app.config.get('DEBUG',False);
 
 #database
