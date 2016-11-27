@@ -10,6 +10,11 @@ export default function() {
       'issue': schema.db.issues.find(request.params.id)
     };
   });
+  this.post('/issues',function(schema,request){
+    return{
+      'issue': schema.db.issues.insert(JSON.parse(request.requestBody).issue)
+    };
+  });
   this.put('/issues/:id',function(schema,request){
     return{
       'issue': schema.db.issues.update(request.params.id, JSON.parse(request.requestBody).issue)

@@ -6,7 +6,8 @@ export default Ember.Controller.extend({
   actions: {
     postIssue(title){
       if(title !== ''){
-        return this.get('store').createRecord('issue',{title:title});
+        let issue = this.get('store').createRecord('issue',{title:title});
+        return issue.save();
       }
     },
     putIssue(param){
