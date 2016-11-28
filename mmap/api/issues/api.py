@@ -1,19 +1,73 @@
-from flask import Flask, Blueprint
+from flask import Flask, Blueprint, request
 from flask.views import MethodView
 from app import db
-from api.jsonify import jsonify
+from bson import json_util
 
 issues = Blueprint('issues',__name__);
 
 class IssuesAPI(MethodView):
+    issue = {'id':'','title':'','done':'','date':'','user':''};
+
+    def parseJSON(self,item):
+        clone = self.issue.copy();
+        clone['id'] = str(item['_id'])
+        for key in item['issue']:
+            clone[key] = item['issue'][key]
+        return clone
+
     def get(self):
-        issues = list(db.issues.find());
-        return jsonify({'issues':issues});
+        items = [];
+        for item in db.issues.find():
+            items.append(self.parseJSON(item))
+        return json_util.dumps({'issues':items}, default=json_util.default);
+
+    def post(self):
+        issue = json_util.loads(request.data.decode('utf-8'))
+        db.issues.save(issue);
+        return json_util.dumps({'issue':self.parseJSON(issue)});
 
     @classmethod
     def register(cls,api):
         f=cls.as_view('issues_api')
-        api.add_url_rule('/api/issues',view_func=f,methods=['GET'])
-        # issues.add_url_rule(url,view_func=f,methods=['POST'])
-        # issues.add_url_rule(url+'<id>',view_func=f,methods=['PUT','DELETE'])
+        api.add_url_rule('/api/issues',view_func=f,methods=['GET']);
+        api.add_url_rule('/api/issues',view_func=f,methods=['POST']);
+        #api.add_url_rule('/api/issues/<id>',view_func=f,methods=['PUT','DELETE']);
 IssuesAPI.register(issues)
+
+"""
+from
+[
+   {
+      "_id":{
+         "$oid":"583a913010ae920decf66ad1"
+      },
+      "issue":{
+         "title":"test",
+         "user":"guest",
+         "date":"2016-11-27T07:54:18.857Z",
+         "done":false
+      }
+   },
+   {
+      "_id":{
+         "$oid":"583a91c610ae9216b4981560"
+      },
+      "issue":{
+         "title":"test2",
+         "user":"guest",
+         "date":"2016-11-27T07:56:30.687Z",
+         "done":false
+      }
+   }
+]
+to
+{
+  "issues": [{
+    "id": 1,
+    "title": "FIRST"
+  }, {
+    "id": 2,
+    "title": "SECOND"
+  }]
+}
+"""
