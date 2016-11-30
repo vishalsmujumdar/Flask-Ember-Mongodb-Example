@@ -24,8 +24,8 @@ Flask - Ember - Mongodb example
 
 ##Command Line
     cd
-    git clone https://github.com/woosungchu/mmap.git
-    cd mmap
+    git clone https://github.com/woosungchu/Flask-Ember-Mongodb-Example.git
+    cd Flask-Ember-Mongodb-Example
     python -m venv venv-mmap
     (window) venv-mmap/Script/activate.bat
     (UNIX) source myvenv/bin/activate
