@@ -14,31 +14,31 @@ Flask - Ember - Mongodb example
 2. ***mmap-web*** - Ember Js Frontend
 
 #Version
-- Python     ==  3.5.2__
-- Flask      ==  0.11__
-- Pymongo    ==  3.3.1__
-- Node       ==  4.6.1__
-- Ember      ==  2.9.1__
-- Ember Data ==  2.9.0__
-- Ember-cli  ==  2.9.1__
+- Python     ==  3.5.2
+- Flask      ==  0.11
+- Pymongo    ==  3.3.1
+- Node       ==  4.6.1
+- Ember      ==  2.9.1
+- Ember Data ==  2.9.0
+- Ember-cli  ==  2.9.1
 
 ##Command Line
-> cd
-> git clone https://github.com/woosungchu/mmap.git
-> cd mmap
-> python -m venv venv-mmap
-> (window) venv-mmap/Script/activate.bat
-> (UNIX) source myvenv/bin/activate
-> (window) SET DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
-> (UNIX) export DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
-> cd mmap
-> pip install -r requirements.txt
-> cd ../mmap-web
-> npm install
-> bower install
-> ember build -prod
-> cd ../mmap
-> python run.py
+    cd
+    git clone https://github.com/woosungchu/mmap.git
+    cd mmap
+    python -m venv venv-mmap
+    (window) venv-mmap/Script/activate.bat
+    (UNIX) source myvenv/bin/activate
+    (window) SET DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
+    (UNIX) export DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
+    cd mmap
+    pip install -r requirements.txt
+    cd ../mmap-web
+    npm install
+    bower install
+    ember build -prod
+    cd ../mmap
+    python run.py
 Go to <http://localhost:5000>!!
 
 #Sorry for....
