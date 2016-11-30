@@ -1,13 +1,13 @@
 Flask - Ember - Mongodb example
 ===============================
 ##Prerequisites
-1. [python3](https://www.python.org/downloads/)
+1. [Python3](https://www.python.org/downloads/)
 2. [Ember](http://emberjs.com/)
 3. [Git](https://git-scm.com/downloads)
 4. [Node](https://nodejs.org/en/)
 5. [Bower](https://bower.io/)
 6. [PhantomJS](http://phantomjs.org/)
-4. [mlab](https://mlab.com/)'s mongodb repository(optional)
+4. [Mlab](https://mlab.com/)'s mongodb repository(optional)
 
 ##Structure
 1. ***mmap*** - Python Flask Backend
@@ -23,20 +23,27 @@ Flask - Ember - Mongodb example
 - Ember-cli  ==  2.9.1
 
 ##Command Line
-    cd
+    cd /
     git clone https://github.com/woosungchu/Flask-Ember-Mongodb-Example.git
     cd Flask-Ember-Mongodb-Example
-    python -m venv venv-mmap
-    (window) venv-mmap/Script/activate.bat
-    (UNIX) source myvenv/bin/activate
-    (window) SET DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
-    (UNIX) export DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
+    python -m venv venv-mmap    
+
+    (window)
+    venv-mmap/Script/activate.bat
+    SET DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
+
+    (UNIX)
+    source myvenv/bin/activate
+    export DB_DEV=mongodb://user:password@ds012345.mlab.com:12345/heroku_12345   ~~(your mongodob url)~~
+
     cd mmap
     pip install -r requirements.txt
+
     cd ../mmap-web
     npm install
     bower install
     ember build -prod
+    
     cd ../mmap
     python run.py
 Go to <http://localhost:5000>!!
